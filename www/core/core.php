@@ -16,6 +16,10 @@
 					$folder = 'models';	
 					break;
 					
+				case 'service':					
+					$folder = 'services';	
+					break;
+					
 				default:
 					$folder = 'classes';
 					break;

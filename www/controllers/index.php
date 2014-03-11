@@ -10,13 +10,16 @@ Class Controller_Index Extends Controller_Base {
 		$model = new Model_Users();
 		$allUsers = $model->getAllUsers();
 		//$oneUser = $model->getUserById(1);		
+		$testAbstractMethod = $model->getRowById(2);
+		var_dump($testAbstractMethod);exit;
 		$this->template->vars('users', $allUsers);
 		$this->template->view('index');
 	}
 	
 	function test() {
-		//var_dump($_GET);exit;
-		$this->template->vars('test_var_2', '222');
+		$serviceMath = new Service_Math();
+		$result = $serviceMath->sum(10, 20);
+		$this->template->vars('test_var_2', $result);
 		$this->template->view('test');
 	}
 	
