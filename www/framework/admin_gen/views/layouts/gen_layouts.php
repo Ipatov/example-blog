@@ -3,13 +3,23 @@
 <head> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 	<meta name="language" content="en" /> 
-	<script src="/web/js/jquery.1.10.js"></script>
-	<script src="/web/js/main.js?v=14"></script>
-	<link rel="stylesheet" type="text/css" href="main.css" />
+	<script src="/assets/gen_admin/js/jquery.1.10.js"></script>
+	<script src="/assets/gen_admin/js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/gen_admin/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/gen_admin/css/bootstrap-select.min.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/gen_admin/css/main.css" />
 	<title>Admin_gen</title> 
 </head>
-
-<?php
-	include ($contentPage);
-?>
-<h1> footer </h1>
+<body>
+<div class="main_conteiner">
+	<hr/>
+	<h4>Admin_gen</h4>
+	<hr/>
+	<?php
+		include ($contentPage);
+	?>
+	<hr/>
+	<h4> © Ipatov <?=date('Y');?>. Admin_gen</h4>
+</div>
+</body>
+</html>

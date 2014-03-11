@@ -3,11 +3,6 @@
 	
 	// конфиг
 	include ('/config/config.php'); 
-	/*if(ADMIN_GEN){
-		$genPath = "admin_gen" . DIRSEP;
-	}else{
-		$genPath = "";
-	}*/
 	
 	// Константы:
 	define ('DIRSEP', DIRECTORY_SEPARATOR);
@@ -17,8 +12,12 @@
 	define ('FRAMEWORK_PATH', $frameworkPath);
 	
 	// Узнаём путь до файлов сайта
-	//$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . $genPath;
-	$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'site' . DIRSEP;
+	// сайт / генератор
+	if(ADMIN_GEN){
+		$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'framework' . DIRSEP .'admin_gen' . DIRSEP;
+	}else{
+		$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'site' . DIRSEP;
+	}
 	define ('SITE_PATH', $sitePath);
 	
 	// Соединяемся с БД

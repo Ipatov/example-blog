@@ -21,7 +21,7 @@
 					
 				case 'service':					
 					$folder = 'services';	
-					$file = SITE_PATH . $folder . DIRSEP . $filename;	
+					$file = FRAMEWORK_PATH . $folder . DIRSEP . $filename;	
 					break;
 					
 				default:
