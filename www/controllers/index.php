@@ -6,26 +6,11 @@ Class Controller_Index Extends Controller_Base {
 	public $layouts = "first_layouts";
 	
 	function index() {
-		$db = $this->registry->get('db'); // объект бд
-		//Простые запросы
-		//$db->query("SET CHARACTER SET utf8");
-		//$db->query("SELECT * FROM users");
-		 
-		//Можно вычислить количество строк
-		$stmt = $db->query('SELECT * FROM users');
-		$row_count = $stmt->rowCount();
-		echo $row_count.' rows selected';
-		 
-		//Еще вариант с количеством
-		$stmt = $db->query('SELECT * from users');
-		$rows = $stmt->fetchAll();
-		//$count = count($rows);
-		foreach($rows as $row)
-		{
-			print_r($row);
-		}
-		
-		$this->template->vars('test_var', '123123');
+		// пример работы с моделью
+		$model = new Model_Users();
+		$allUsers = $model->getAllUsers();
+		//$oneUser = $model->getUserById(1);		
+		$this->template->vars('users', $allUsers);
 		$this->template->view('index');
 	}
 	

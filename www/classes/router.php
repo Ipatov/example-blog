@@ -73,7 +73,7 @@ Class Router {
         if (is_readable($file) == false) {
 			die ('404 Not Found');
         }
-
+		
         // Подключаем файл
         include ($file);
 
