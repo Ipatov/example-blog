@@ -11,7 +11,7 @@ Class Controller_Index Extends Controller_Base {
 		$allUsers = $model->getAllUsers();
 		//$oneUser = $model->getUserById(1);		
 		$testAbstractMethod = $model->getRowById(2);
-		var_dump($testAbstractMethod);exit;
+		//var_dump($testAbstractMethod);exit;
 		$this->template->vars('users', $allUsers);
 		$this->template->view('index');
 	}
