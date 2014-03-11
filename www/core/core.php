@@ -1,0 +1,2 @@
+<?php
+	$registry = new Registry;
