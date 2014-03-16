@@ -26,13 +26,12 @@ Class Controller_Models Extends Controller_Base {
 		}
 		$templateModel = file_get_contents(FRAMEWORK_PATH . DIRSEP . 'admin_gen' . DIRSEP . 'models' . DIRSEP . 'model_template.php');
 		$template = str_replace('#TABLE_NAME#', ucfirst(strtolower($tableName)), $templateModel);
-		var_dump($template);exit;
-		$text = "Какой-то текст"; 
+		//var_dump($template);exit;
 		// открываем файл, если файл не существует,
 		//делается попытка создать его
 		$fp = fopen($path . DIRSEP . $modelName, "w");			 
 		// записываем в файл текст
-		fwrite($fp, $text);			 
+		fwrite($fp, $template);			 
 		// закрываем
 		fclose($fp);
 		

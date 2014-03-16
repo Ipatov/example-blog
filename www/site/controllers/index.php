@@ -7,20 +7,42 @@ Class Controller_Index Extends Controller_Base {
 	
 	function index() {
 		// пример работы с моделью
-		$model = new Model_Users();
-		$allUsers = $model->getAllUsers();
-		//$oneUser = $model->getUserById(1);		
-		$testAbstractMethod = $model->getRowById(2);
-		//var_dump($testAbstractMethod);exit;
-		$this->template->vars('users', $allUsers);
+		/*$model = new Model_Users();
+		$allUsers = $model->getAllRows();
+		$this->template->vars('users', $allUsers);*/
 		$this->template->view('index');
 	}
 	
 	function test() {
-		$serviceMath = new Service_Math();
-		$result = $serviceMath->sum(10, 20);
-		$this->template->vars('test_var_2', $result);
-		$this->template->view('test');
+		// пример работы с бд через модель
+		
+		/*$model = new Model_Users();
+		$model->id = 20;
+		$model->name = 'sdf 11 ddd1';
+		$r = $model->save();
+		var_dump($r);exit;*/
+		
+		/*$select = array(
+			'where' => 'id > 1 AND id <= 6',
+			'group' => 'name',
+			'order' => 'id DESC',
+			'limit' => 10
+		);
+		$model = new Model_Users($select);*/
+		// все записи
+		// $r = $model->getAllRows();
+		// var_dump($r);exit;
+
+		// одна запись
+		// $r = $model->getOneRow();
+		// var_dump($r);exit;
+
+		// получить и записать в свойства
+		// $model->fetchOne();
+		// $name = $model->name;
+		// var_dump($name);
+		
+		//$this->template->view('test');
 	}
 	
 }

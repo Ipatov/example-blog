@@ -8,13 +8,13 @@
 	define ('DIRSEP', DIRECTORY_SEPARATOR);
 	
 	// путь к фреймворку
-	$frameworkPath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'framework' . DIRSEP ;
+	$frameworkPath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . FRAMEWORK_FOLDER . DIRSEP ;
 	define ('FRAMEWORK_PATH', $frameworkPath);
 	
 	// Узнаём путь до файлов сайта
 	// сайт / генератор
 	if(ADMIN_GEN){
-		$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'framework' . DIRSEP .'admin_gen' . DIRSEP;
+		$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . FRAMEWORK_FOLDER . DIRSEP .'admin_gen' . DIRSEP;
 	}else{
 		$sitePath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP) . DIRSEP . 'site' . DIRSEP;
 	}

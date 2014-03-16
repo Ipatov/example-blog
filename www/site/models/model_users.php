@@ -2,18 +2,18 @@
 
 Class Model_Users Extends Model_Base {
 	
-	function getAllUsers() {
-		$db = $this->db;
-		$stmt = $db->query('SELECT * from users');
-		$rows = $stmt->fetchAll();
-		return $rows;
-	}
+	public $id;
+	public $name;
 	
-	function getUserById($id) {
-		$db = $this->db;
-		$stmt = $db->query("SELECT * from users WHERE id =$id");
-		$row = $stmt->fetch();
-		return $row;
+	/*public function __construct($select = false) {
+		parent::__construct($select);
+	}*/
+	
+	public function fieldsTable(){
+		return array(
+			'id' => 'Id',
+			'name' => 'Name'
+		);
 	}
 	
 }
