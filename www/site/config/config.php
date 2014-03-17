@@ -4,8 +4,8 @@
 	define('DB_HOST', 'localhost');
 	define('DB_NAME', 'demo');
 	
-	//define('ADMIN_GEN', true);
-	define('ADMIN_GEN', false);
+	define('ADMIN_GEN', true);
+	//define('ADMIN_GEN', false);
 	define ('DIRSEP', DIRECTORY_SEPARATOR); 
 	//define('FRAMEWORK_FOLDER', 'is_framework');
 	define('FRAMEWORK_FOLDER', '..' . DIRSEP . 'is_framework' . DIRSEP );
