@@ -2,10 +2,11 @@
 	define('DB_USER', 'root');
 	define('DB_PASS', '');
 	define('DB_HOST', 'localhost');
-	define('DB_NAME', 'demo');
+	//define('DB_NAME', 'demo');
+	define('DB_NAME', 'iq_db');
 	
-	define('ADMIN_GEN', true);
-	//define('ADMIN_GEN', false);
+	//define('ADMIN_GEN', true);
+	define('ADMIN_GEN', false);
 	define ('DIRSEP', DIRECTORY_SEPARATOR); 
 	//define('FRAMEWORK_FOLDER', 'is_framework');
 	define('FRAMEWORK_FOLDER', '..' . DIRSEP . 'is_framework' . DIRSEP );

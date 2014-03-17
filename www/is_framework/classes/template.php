@@ -40,6 +40,9 @@ Class Template {
 			$$key = $value;
 		}
 
+		$controllerName = $this->controller;
+		$actionName = $name;
+		
 		include ($pathLayout);                
 	}
 	

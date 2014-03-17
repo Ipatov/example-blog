@@ -10,11 +10,30 @@
 	<title>Заголовок</title>
 </head>
 
+<?php
+	if(($controllerName == 'index') AND ($actionName == 'index')){
+		$mainPage = true;
+	}else{
+		$mainPage = false;	
+	}
+?>
 <body>
 	<div class="main_container">
-	<?php
-		include ($contentPage);
-	?>
+		<div class="<?=($mainPage) ? 'main_bg' : 'all_page_bg';?>">
+			<div class="info_user">
+			
+			</div>
+			<?php
+				if(!$mainPage) echo '<div class="all_page_div">';
+				include ($contentPage);
+				if(!$mainPage) echo '</div>';
+			?>
+			<?php if(!$mainPage): ?>
+				<div class="footer_div">
+					<a href="/"><< main</a>
+				</div>
+			<?php endif; ?>
+		</div>
 	</div>
 </body>
 </html>

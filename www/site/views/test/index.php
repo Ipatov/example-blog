@@ -1,1 +1,1 @@
-Test view: <?php echo $test_var; ?>
+test

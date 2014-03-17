@@ -6,11 +6,23 @@ Class Controller_Index Extends Controller_Base {
 	public $layouts = "first_layouts";
 	
 	function index() {
-		// пример работы с моделью
-		/*$model = new Model_Users();
-		$allUsers = $model->getAllRows();
-		$this->template->vars('users', $allUsers);*/
 		$this->template->view('index');
+	}
+	
+	function rules() {
+		$this->template->view('rules');
+	}
+	
+	function top() {
+		$this->template->view('top');
+	}
+	
+	function about() {
+		$this->template->view('about');
+	}
+	
+	function my_result() {
+		$this->template->view('my_result');
 	}
 	
 	function test() {

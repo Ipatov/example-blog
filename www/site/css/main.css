@@ -15,3 +15,63 @@ a img {border:none;}
 	width: 750px;
 	margin: 0 auto;
 }
+.main_bg{
+	width: 750px;
+	height: 750px;
+	background: url(../images/main_bg.jpg) no-repeat 0 0;
+}
+.all_page_bg{
+	width: 750px;
+	height: 750px;
+	background: url(../images/all_page_bg.jpg) no-repeat 0 0;
+}
+.div_btn_main{
+	margin-left: 160px;
+    position: relative;
+    top: 325px;
+    width: 425px;
+}
+.div_btn_main a{
+	display: block;
+	width: 183px;
+	height: 41px;
+	margin-bottom: 20px;
+}
+.div_btn_main a:hover{
+	background-position: 0 -41px;
+}
+.btn_start{
+	background: url(../images/btn_start.png) no-repeat 0 0;
+	margin: 0 auto;
+}
+.btn_top{
+	background: url(../images/btn_top.png) no-repeat 0 0;
+	float: left;
+}
+.btn_my_result{
+	background: url(../images/btn_my_result.png) no-repeat 0 0;
+	float: right;
+}
+.btn_rules{
+	background: url(../images/btn_rules.png) no-repeat 0 0;
+	float: left;
+}
+.btn_about{
+	background: url(../images/btn_about.png) no-repeat 0 0;
+	float: right;
+}
+.all_page_div{
+	width: 750px;
+	height: 580px;
+}
+.footer_div{
+    margin-left: 25px;
+	height: 70px;
+    width: 690px;
+}
+.info_user{
+	width: 244px;
+	height: 100px;
+	background: url(../images/user_info_bg.png) no-repeat 0 0;
+	margin-left: 10px;
+}
