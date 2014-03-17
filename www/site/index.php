@@ -17,6 +17,7 @@
 	}
 	catch(PDOException $e) {
 		echo $e->getMessage();
+		exit;
 	}
 
 	// Загружаем router

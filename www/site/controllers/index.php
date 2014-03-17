@@ -23,12 +23,21 @@ Class Controller_Index Extends Controller_Base {
 		var_dump($r);exit;*/
 		
 		/*$select = array(
-			'where' => 'id > 1 AND id <= 6',
+			//'where' => 'id > 1 AND id <= 6',
+			'where' => 'id = 13',
 			'group' => 'name',
 			'order' => 'id DESC',
 			'limit' => 10
-		);
-		$model = new Model_Users($select);*/
+		);*/
+		//$model = new Model_Users($select);
+		// удаление по запросу
+		//$model->deleteBySelect($select);
+		//var_dump($r);exit;
+		// уделение строки
+		/*$model->fetchOne();
+		$r = $model->deleteRow();
+		var_dump($r);exit;*/
+		
 		// все записи
 		// $r = $model->getAllRows();
 		// var_dump($r);exit;
@@ -36,11 +45,14 @@ Class Controller_Index Extends Controller_Base {
 		// одна запись
 		// $r = $model->getOneRow();
 		// var_dump($r);exit;
-
-		// получить и записать в свойства
-		// $model->fetchOne();
-		// $name = $model->name;
-		// var_dump($name);
+		
+		// update ===>>>
+		/*$model->fetchOne();
+		$model->name = 'new name';
+		$model->last_name = 'new last name';
+		$r = $model->update();
+		var_dump($r);exit;*/
+		// <<<==========
 		
 		//$this->template->view('test');
 	}
