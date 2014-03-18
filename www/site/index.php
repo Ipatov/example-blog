@@ -20,14 +20,14 @@
 	}
 
 	
-	$arrayModules = array(
+	$arrayModulesCofig = array(
 		// 'имя(url) модуля' => 'папка модуля'
 		'main' => '', // не обязательный
 		'admin' => './admin_module/'
 	);
 	
 	// заносим массив модулей в реестр
-	$registry->set('arrayModules', $arrayModules);
+	$registry->set('arrayModules', $arrayModulesCofig);
 	
 	// Загружаем router
 	$router = new Router($registry);

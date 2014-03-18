@@ -48,7 +48,7 @@ Class Router {
 	
 	private function getController(&$file, &$controller, &$action, &$args) {
         $route = (empty($_GET['route'])) ? '' : $_GET['route'];
-		unset($_GET['route']);
+		//unset($_GET['route']);
         if (empty($route)) {
 			$route = 'index'; 
 		}
@@ -77,6 +77,7 @@ Class Router {
         $cmd_path = $this->path;
         foreach ($parts as $part) {
 			$fullpath = $cmd_path . $part;
+			//var_dump($fullpath);//exit;
 			// Есть ли папка с таким путём?
 			if (is_dir($fullpath)) {
 				$cmd_path .= $part . DIRSEP;
@@ -86,14 +87,14 @@ Class Router {
 
 			// Находим файл
 			if (is_file($fullpath . '.php')) {
-				$controller = $part;
+				$controller = 'controller_' . $part;
 				array_shift($parts);
 				break;
 			}
         }
 
         if (empty($controller)) {
-			$controller = 'index'; 
+			$controller = 'controller_index'; 
 		}
 
         // Получаем действие
@@ -110,26 +111,34 @@ Class Router {
         // Анализируем путь
         $this->getController($file, $controller, $action, $args);
 
-		
+		//var_dump($file);exit;
         // Файл доступен?
         if (is_readable($file) == false) {
-			die ('404 Not Found');
+			return $this->show404();
         }
 		
         // Подключаем файл
-        include ($file);
+        //include ($file);
 
         // Создаём экземпляр контроллера
-        $class = 'Controller_' . $controller;
+        //$class = 'Controller_' . $controller;
+        $class = $controller;
         $controller = new $class($this->registry);
 
-        // Действие доступно?
+        // проверка доступности экшена
         if (is_callable(array($controller, $action)) == false) {
-			die ('404 Not Found');
+			return $this->show404();		
         }
 
+		unset($_GET['route']);
         // Выполняем действие
-        $controller->$action();
-
+        $controller->$action();		
 	}
+	
+	private function show404() {
+		$controller = new Controller_Error($this->registry);
+		$controller->error_404();
+		return false;
+	}
+	
 }

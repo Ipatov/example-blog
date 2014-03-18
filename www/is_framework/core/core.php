@@ -1,22 +1,43 @@
-<?php
+<?php	
+
+	$registry = new Registry;
+	
 	// Загрузка классов "на лету"
 	function __autoload($className) {
+		//var_dump($className);
 		$filename = strtolower($className) . '.php';
 		
 		$expArr = explode('_', $className);
 		if(empty($expArr[1]) OR $expArr[1] == 'Base'){
 			$folder = 'classes';
 			$file = FRAMEWORK_PATH . $folder . DIRSEP . $filename;	
-		}else{			
+		}else{				
+			global $arrayModulesCofig;
+			$route = (empty($_GET['route'])) ? '' : $_GET['route'];
+			$route = trim($route, '/\\');
+			$parts = explode('/', $route);			
+			$modules = $arrayModulesCofig;
+			
+			if(isset($modules) AND !empty($modules)){
+				$arrayModulesUrl = array_keys($modules);
+				if(in_array(strtolower($parts[0]), $arrayModulesUrl)){
+					$sitePathCore = $arrayModulesCofig[strtolower($parts[0])];
+				}else{
+					$sitePathCore = SITE_PATH;
+				}
+			}else{
+				$sitePathCore = SITE_PATH;
+			}
+			
 			switch(strtolower($expArr[0])){
 				case 'controller':
 					$folder = 'controllers';
-					$file = SITE_PATH . $folder . DIRSEP . $filename;	
+					$file = $sitePathCore . $folder . DIRSEP . $filename;					
 					break;
 					
 				case 'model':					
 					$folder = 'models';	
-					$file = SITE_PATH . $folder . DIRSEP . $filename;	
+					$file = $sitePathCore . $folder . DIRSEP . $filename;	
 					break;
 					
 				case 'service':					
@@ -30,11 +51,9 @@
 					break;
 			}
 		}
-			
+		//var_dump($file .'<br/>');
 		if (file_exists($file) == false) {
 			return false;
 		}
 		include ($file);
 	}
-	
-	$registry = new Registry;
