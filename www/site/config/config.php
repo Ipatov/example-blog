@@ -5,15 +5,20 @@
 	define('DB_NAME', 'demo');
 	//define('DB_NAME', 'iq_db');
 	
-	define('ADMIN_GEN', true);
-	//define('ADMIN_GEN', false);
+	//define('ADMIN_GEN', true);
+	define('ADMIN_GEN', false);
+	// резделитель папок
 	define ('DIRSEP', DIRECTORY_SEPARATOR); 
-	//define('FRAMEWORK_FOLDER', 'is_framework');
+	// папка фреймворка
 	define('FRAMEWORK_FOLDER', '..' . DIRSEP . 'is_framework' . DIRSEP );
-	define('SITE_FOLDER', '');
+	// папка сайта
+	define('SITE_FOLDER', '' );
+	// папка для дминки
+	//define('ADMIN_FOLDER', '.' . DIRSEP . 'admin_module' . DIRSEP );
+	// пусть до админки. урл
+	//define('ADMIN_PATH', 'admin');
 	
-	// Константы:
-	// резделитель
+	
 	
 	// путь к фреймворку
 	//$frameworkPath = realpath(dirname(__FILE__) . DIRSEP . '..' . DIRSEP . '..' . DIRSEP) . DIRSEP . FRAMEWORK_FOLDER . DIRSEP ;

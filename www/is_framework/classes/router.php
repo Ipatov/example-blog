@@ -11,7 +11,33 @@ Class Router {
 		$this->registry = $registry;
 	}
 
-	function setPath($path) {
+	/*function setPath($path) {
+		//var_dump($path);exit;
+        $path = trim($path, '/\\');
+        $path .= DIRSEP;
+        if (is_dir($path) == false) {
+			throw new Exception ('Invalid controller path: `' . $path . '`');
+        }
+        $this->path = $path;
+	}*/
+	
+	function setPath() {
+		$route = (empty($_GET['route'])) ? '' : $_GET['route'];
+		$route = trim($route, '/\\');
+		$rArr = explode('/', $route);
+		$modules = $this->registry->get('arrayModules');
+		if(isset($modules) AND !empty($modules)){
+			$arrayModulesUrl = array_keys($modules);
+			if(in_array(strtolower($rArr[0]), $arrayModulesUrl)){
+				$folderModule = $modules[strtolower($rArr[0])];
+				$path = ($folderModule . 'controllers');
+			}else{
+				$path = (SITE_PATH . 'controllers');
+			}
+		}else{
+			$path = (SITE_PATH . 'controllers');
+		}
+		
         $path = trim($path, '/\\');
         $path .= DIRSEP;
         if (is_dir($path) == false) {
@@ -30,12 +56,27 @@ Class Router {
         // Получаем раздельные части
         $route = trim($route, '/\\');
         $parts = explode('/', $route);
-
+		
+		$modules = $this->registry->get('arrayModules');
+		if(isset($modules) AND !empty($modules)){
+			$arrayModulesUrl = array_keys($modules);
+			if(in_array(strtolower($parts[0]), $arrayModulesUrl)){
+				unset($parts[0]);
+				sort($parts);
+				if (empty($parts)) {
+					$parts[0] = 'index'; 
+				}
+			}
+		}else{
+			if (empty($parts)) {
+				$parts[0] = 'index'; 
+			}
+		}
+		
         // Находим правильный контроллер
         $cmd_path = $this->path;
         foreach ($parts as $part) {
 			$fullpath = $cmd_path . $part;
-
 			// Есть ли папка с таким путём?
 			if (is_dir($fullpath)) {
 				$cmd_path .= $part . DIRSEP;
@@ -65,10 +106,11 @@ Class Router {
         $args = $parts;
 	}
 	
-	function delegate() {
+	function start() {
         // Анализируем путь
         $this->getController($file, $controller, $action, $args);
 
+		
         // Файл доступен?
         if (is_readable($file) == false) {
 			die ('404 Not Found');

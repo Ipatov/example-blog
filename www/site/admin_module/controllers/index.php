@@ -6,7 +6,7 @@ Class Controller_Index Extends Controller_Base {
 	public $layouts = "first_layouts";
 	
 	function index() {
-		var_dump('site');exit;
+		var_dump('sd');exit;
 		$this->template->view('index');
 	}
 	

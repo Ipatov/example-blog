@@ -28,7 +28,7 @@ Class Template {
 		$pathLayout = SITE_PATH . 'views' . DIRSEP . 'layouts' . DIRSEP . $this->layouts . '.php';
 		$contentPage = SITE_PATH . 'views' . DIRSEP . $this->controller . DIRSEP . $name . '.php';
 		if (file_exists($pathLayout) == false) {
-			trigger_error ('Layout `' . $this->layouts . '` does not exist.', E_USER_NOTICE);
+			trigger_error ('Layout `' . $pathLayout . '` does not exist.', E_USER_NOTICE);
 			return false;
 		}
 		if (file_exists($contentPage) == false) {

@@ -34,8 +34,6 @@ Class Controller_Models Extends Controller_Base {
 			$strArrayFieldsTable .= "\t\t\t'$oneField'" . " => " . "'$fieldName',\r\n";
 		}
 		
-		//var_dump($strVars);exit;
-		
 		if(!file_exists($path)){
 			mkdir($path, 0750);
 		}
