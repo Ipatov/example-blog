@@ -2,25 +2,25 @@
 
 Class Model_Test Extends Model_Base {
 	
-	public function getAll() {
-		$db = $this->db;
-		$stmt = $db->query("SELECT * from $this->table");
-		$rows = $stmt->fetchAll();
-		return $rows;
+	public $id;
+	public $test_1;
+	public $test_2;
+	public $test_id;
+	
+	 
+	/*public function __construct($select = false) {
+		parent::__construct($select);
+	}*/
+	
+	public function fieldsTable(){
+		return array(
+			
+			'id' => 'Id',
+			'test_1' => 'Test 1',
+			'test_2' => 'Test 2',
+			'test_id' => 'Test Id',
+
+		);
 	}
 	
-	public function getRowById($id) {
-		$db = $this->db;
-		$stmt = $db->query("SELECT * from $this->table WHERE id = $id");
-		$row = $stmt->fetch();
-		return $row;
-	}
-	
-	public function getTableName() {
-		return $this->table;
-	}
-	
-	public function getNameById() {
-		return $this->table;
-	}
 }

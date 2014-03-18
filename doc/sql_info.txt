@@ -1,0 +1,17 @@
+/*Инфа о таблице:*/
+SELECT *  FROM 
+	INFORMATION_SCHEMA.Tables 
+	WHERE TABLE_NAME = 'test' 
+		AND TABLE_SCHEMA = 'demo'
+
+/*Имена полей в таблице:*/
+SELECT COLUMN_NAME
+	FROM INFORMATION_SCHEMA.COLUMNS
+	WHERE TABLE_NAME = 'test'
+		AND TABLE_SCHEMA = 'demo';
+
+/*Инфа о полях*/
+SHOW COLUMNS FROM 'test';
+
+
+		

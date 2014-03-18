@@ -1,8 +1,11 @@
 <?php
 
-Class Model_#TABLE_NAME# Extends Model_Base {
+Class Model_Users Extends Model_Base {
 	
-	#VARS_FIELD_NAME#
+	public $id;
+	public $name;
+	public $last_name;
+	
 	 
 	/*public function __construct($select = false) {
 		parent::__construct($select);
@@ -10,7 +13,11 @@ Class Model_#TABLE_NAME# Extends Model_Base {
 	
 	public function fieldsTable(){
 		return array(
-			#FIELDS_NAME#
+			
+			'id' => 'Id',
+			'name' => 'Name',
+			'last_name' => 'Last Name',
+
 		);
 	}
 	
