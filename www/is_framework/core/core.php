@@ -1,23 +1,21 @@
-<?php	
-
+<?php
+	// старт реестра
 	$registry = new Registry;
 	
 	// Загрузка классов "на лету"
 	function __autoload($className) {
-		//var_dump($className);
-		$filename = strtolower($className) . '.php';
-		
+		$filename = strtolower($className) . '.php';		
 		$expArr = explode('_', $className);
 		if(empty($expArr[1]) OR $expArr[1] == 'Base'){
 			$folder = 'classes';
 			$file = FRAMEWORK_PATH . $folder . DIRSEP . $filename;	
-		}else{				
+		}else{			
+			// определение папки с модулем
 			global $arrayModulesCofig;
 			$route = (empty($_GET['route'])) ? '' : $_GET['route'];
 			$route = trim($route, '/\\');
 			$parts = explode('/', $route);			
-			$modules = $arrayModulesCofig;
-			
+			$modules = $arrayModulesCofig;			
 			if(isset($modules) AND !empty($modules)){
 				$arrayModulesUrl = array_keys($modules);
 				if(in_array(strtolower($parts[0]), $arrayModulesUrl)){
@@ -29,6 +27,7 @@
 				$sitePathCore = SITE_PATH;
 			}
 			
+			// определение папки для класса
 			switch(strtolower($expArr[0])){
 				case 'controller':
 					$folder = 'controllers';
@@ -51,7 +50,6 @@
 					break;
 			}
 		}
-		//var_dump($file .'<br/>');
 		if (file_exists($file) == false) {
 			return false;
 		}

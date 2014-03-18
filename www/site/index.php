@@ -18,7 +18,6 @@
 		echo $e->getMessage();
 		exit;
 	}
-
 	
 	$arrayModulesCofig = array(
 		// 'имя(url) модуля' => 'папка модуля'

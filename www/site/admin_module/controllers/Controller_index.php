@@ -11,6 +11,7 @@ Class Controller_Index Extends Controller_Base {
 	}
 	
 	function rules() {
+		var_dump('admin-index-rules');exit;
 		$this->template->view('rules');
 	}
 	
