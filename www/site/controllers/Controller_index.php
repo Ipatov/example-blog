@@ -12,8 +12,7 @@ Class Controller_Index Extends Controller_Base {
 		$metaTags = array(
 			'title' => 'title-index',
 			'description' => 'description-index',
-			'keywords' => 'keywords-index',
-			'test_tag' => 'ttest'
+			'keywords' => 'keywords-index'
 		);
 		$this->template->setMetaTag($metaTags);
 		$this->template->view('index');
