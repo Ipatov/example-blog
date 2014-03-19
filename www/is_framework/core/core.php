@@ -4,6 +4,10 @@
 	
 	// Загрузка классов "на лету"
 	function __autoload($className) {
+		// полный пэ.. потом переделаю
+		if($className == 'ISF'){
+			$className = 'service_isf';
+		}
 		$filename = strtolower($className) . '.php';		
 		$expArr = explode('_', $className);
 		if(empty($expArr[1]) OR $expArr[1] == 'Base'){

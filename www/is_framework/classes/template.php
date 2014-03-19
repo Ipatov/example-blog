@@ -5,7 +5,12 @@ Class Template {
 	private $template;
 	private $controller;
 	private $layouts;
+	private $metaTags;
 	private $vars = array();
+	// meta
+	private $title;
+	private $description;
+	private $keywords;
 	
 	function __construct($layouts, $controllerName) {
 		$this->layouts = $layouts;
@@ -40,10 +45,26 @@ Class Template {
 			$$key = $value;
 		}
 
+		// имена контролера и экшена
 		$controllerName = $this->controller;
 		$actionName = $name;
+		// мета-теги
+		$meta = array(
+			'title' => $this->title,
+			'description' => $this->description,
+			'keywords' => $this->keywords
+		);
+		$metaTags = new Service_Meta_tags($meta);
 		
 		include ($pathLayout);                
 	}
+	
+	function setMetaTag($metaTags){
+		foreach($metaTags as $name=>$value){
+			$this->$name = $value;		
+		}
+	}
+	
+		
 	
 }

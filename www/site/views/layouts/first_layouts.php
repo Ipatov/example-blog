@@ -3,11 +3,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
+	
+	<meta name="description" content="<?=$metaTags->description;?>">
+	<meta name="keywords" content="<?=$metaTags->keywords;?>">
+
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
 	<link rel="shortcut icon" href="/images/favicon.png">
 	<link rel="stylesheet" type="text/css" href="/css/main.css" />
 	<script type="text/javascript" src="/js/script.js"></script>
-	<title>Заголовок</title>
+	<title><?=$metaTags->title;?></title>
 </head>
 
 <?php

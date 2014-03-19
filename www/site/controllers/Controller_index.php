@@ -4,14 +4,24 @@ Class Controller_Index Extends Controller_Base {
 	
 	// шаблон
 	public $layouts = "first_layouts";
+	public $description = "description";
+	public $keywords = "keywords, keywords";
+	//public $title = "Заголовок11";
 	
 	function index() {
-		var_dump('index1');exit;
+		$metaTags = array(
+			'title' => 'title-index',
+			'description' => 'description-index',
+			'keywords' => 'keywords-index',
+			'test_tag' => 'ttest'
+		);
+		$this->template->setMetaTag($metaTags);
 		$this->template->view('index');
 	}
 	
 	function rules() {
-		var_dump('rules');exit;
+		//ISF::redirect('index/index');
+		
 		$this->template->view('rules');
 	}
 	
